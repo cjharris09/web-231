@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <!--
+============================================
+; Title: Assignment 2.3
+; Author: Chris Harris
+; Date: 17 January 2021
+; Description: This is an exercise that 
+; demonstrates the use of javascript in html
+;===========================================
+-->
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../site.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div id="container">
+            <h1>Payroll System</h1>
+            <h3>Employee record 1</h3>
+            <ul>
+                <li id="txtFirstNameChris"></li>
+                <li id="txtLastNameHarris"></li>
+                <li id="txtAddressChris"></li>
+                <li id="txtHireDateChris"></li>
+                <li id="txtPayRateChris"></li>
+            </ul>
+
+            <h3>Employee record 2</h3>
+            <ul>
+                <li id="txtFirstNameErinn"></li>
+                <li id="txtLastNameErinn"></li>
+                <li id="txtAddressErinn"></li>
+                <li id="txtHireDateErinn"></li>
+                <li id="txtPayRateErinn"></li>
+            </ul>
+
+            <h3>Employee record 3</h3>
+            <ul>
+                <li id="txtFirstNameColton"></li>
+                <li id="txtLastNameColton"></li>
+                <li id="txtAddressColton"></li>
+                <li id="txtHireDateColton"></li>
+                <li id="txtPayRateColton"></li>
+            </ul>
+
+            <a class="return-home" href="../index.html">Return</a>
+
+
+
+        </div>
+        
+        <script>
+            /*--JavaScript variables and functions for Employee record 1*/
+            let txtFirstName1 = 'Chris'
+            let txtLastName1 = 'Harris'
+            let txtAddress1 = 'Montana'
+            let txtHireDate1 = new Date().toLocaleDateString("en-US")
+            let txtPayRate1 = 12.999  
+
+            document.getElementById("txtFirstNameChris").innerHTML = txtFirstName1
+            document.getElementById("txtLastNameHarris").innerHTML = txtLastName1
+            document.getElementById("txtAddressChris").innerHTML = txtAddress1
+            document.getElementById("txtHireDateChris").innerHTML = txtHireDate1
+            document.getElementById("txtPayRateChris").innerHTML = txtPayRate1.toFixed(1)
+            
+            /*--JavaScript variables and functions for Employee record 2*/
+            let txtFirstName2 = 'Erinn'
+            let txtLastName2 = 'Harris'
+            let txtAddress2 = 'Montana'
+            let txtHireDate2 = new Date().toLocaleDateString("en-US")
+            let txtPayRate2 = 25.6845
+
+            document.getElementById("txtFirstNameErinn").innerHTML = txtFirstName2
+            document.getElementById("txtLastNameErinn").innerHTML = txtLastName2
+            document.getElementById("txtAddressErinn").innerHTML = txtAddress2
+            document.getElementById("txtHireDateErinn").innerHTML = txtHireDate2
+            document.getElementById("txtPayRateErinn").innerHTML = txtPayRate2.toFixed(1)
+
+            /*--JavaScript variables and functions for Employee record 3*/
+            let txtFirstName3 = 'Colton'
+            let txtLastName3 = 'Harris'
+            let txtAddress3 = 'Montana'
+            let txtHireDate3 = new Date().toLocaleDateString("en-US")
+            let txtPayRate3 = 7.8415
+
+            document.getElementById("txtFirstNameColton").innerHTML = txtFirstName3
+            document.getElementById("txtLastNameColton").innerHTML = txtLastName3
+            document.getElementById("txtAddressColton").innerHTML = txtAddress3
+            document.getElementById("txtHireDateColton").innerHTML = txtHireDate3
+            document.getElementById("txtPayRateColton").innerHTML = txtPayRate3.toFixed(1)
+
+        </script>
+    </body>
+</html>

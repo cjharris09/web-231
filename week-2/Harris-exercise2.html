@@ -15,12 +15,7 @@
         <link href="../site.css" type="text/css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-        <!--JavaScript functions-->
-        <script>
-            function buttonClick(){
-                alert("WEB-231 - Enterprise JavaScript I.")
-            }
-        </script>
+        
     </head>
     <body>
         <div id="container">
@@ -29,9 +24,17 @@
               <!--Button that displays function buttonClick()-->
             <button id="btnMyCourse" onclick="buttonClick()">What course am I taking?</button>
 
-            <p id="txtMyWorld">You are now in Harris's world!</p>
-            
+            <p id="txtMyWorld"></p>
+
             <a class="return-home" href="../index.html">Return</a>
         </div>
+
+        <!--JavaScript functions-->
+        <script>
+            function buttonClick(){
+                alert("WEB-231 - Enterprise JavaScript I.")
+            }
+            document.getElementById("txtMyWorld").innerHTML = "You are now in Harris's world!"
+        </script>
     </body>
 </html>
