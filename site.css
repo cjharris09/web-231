@@ -1,5 +1,15 @@
+/*
+============================================
+; Title: site.css file
+; Author: Chris Harris
+; Date: 17 January 2021
+; Description: This is the css file that
+; will be used for the class project
+;===========================================
+*/
+
 .body {
-    font-family: Oswald, Verdana, Arial, sans-serif;
+    font-family: "Oswald", Verdana, Arial, sans-serif;
 }
 
 #container {
@@ -27,4 +37,18 @@ a :hover {
 
 a :visited {
     color: #3c275a;
+}
+/*return home in exercise 2*/
+.return-home {
+    color: #4F3674;
+    text-decoration: none;
+}
+/*return home in exercise 2*/
+.return-home :hover {
+    background-color: #d6a800;
+    color:#4F3674;
+}
+/*return home in exercise 2*/
+.return-home :visited {
+    color: #3C275A;
 }

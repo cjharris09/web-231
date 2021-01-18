@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Exercise 2
+; Author: Chris Harris
+; Date: 17 January 2021
+; Description: This is an exercise that 
+; demonstrates the use of javascript in html
+;===========================================
+-->
+<html lang="en"> 
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../site.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+        <!--JavaScript functions-->
+        <script>
+            function buttonClick(){
+                alert("WEB-231 - Enterprise JavaScript I.")
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Exercise 2.2 - Hello JavaScript</h1>
+
+              <!--Button that displays function buttonClick()-->
+            <button id="btnMyCourse" onclick="buttonClick()">What course am I taking?</button>
+
+            <p id="txtMyWorld">You are now in Harris's world!</p>
+            
+            <a class="return-home" href="../index.html">Return</a>
+        </div>
+    </body>
+</html>
