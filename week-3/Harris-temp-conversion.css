@@ -1,0 +1,14 @@
+body {
+    font-family: "Oswald", Verdana, Arial, sans-serif;
+    text-align: center;
+    font-size: 28px;
+}
+a {
+    float: left;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
