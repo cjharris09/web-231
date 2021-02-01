@@ -1,21 +1,17 @@
 /*--
 ============================================
-; Title: Assignment 3.2
+; Title: Assignment 4.2
 ; Author: Chris Harris
 ; Date: 22 January 2021
 ; Description: This is the css file for the weekly changes
 ;===========================================
 */
 
-
-body {
-    font-family: "Oswald", Verdana, Arial, sans-serif;
+h1 {
+    font-weight: 400;
     text-align: center;
-    font-size: 28px;
 }
-a {
-    float: left;
-}
+
 
 #container {
     padding: 10px;
@@ -30,5 +26,11 @@ a {
     width: 600px;
     margin: 3% auto 0 ;
 }
+
+#results {
+    text-align: center;
+    font-size: 28px;
+}
+
 
 
