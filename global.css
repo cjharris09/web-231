@@ -80,6 +80,16 @@ body {
     padding: 20px;
 }
 
+/*Styling for the Drop down menu*/
+.drop-down-menu {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 /*return home in exercise */
 .return-home {
     color: #4F3674;

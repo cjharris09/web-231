@@ -1,0 +1,33 @@
+/*--
+============================================
+; Title: Assignment 5.2
+; Author: Chris Harris
+; Date: 7 February 2021
+; Description: This is the css file for the weekly changes
+;===========================================
+*/
+/*these are the stylings that are used for the cards*/
+h1 {
+    font-weight: 400;
+    text-align: center;
+}
+
+
+#container {
+    padding: 10px;
+}
+
+#form {
+    width: 600px;
+    margin: 3% auto 0;
+}
+
+#form-results {
+    width: 600px;
+    margin: 3% auto 0 ;
+}
+
+#results {
+    text-align: center;
+    font-size: 28px;
+}

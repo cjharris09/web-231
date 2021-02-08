@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Assignment 5.2
+; Author: Chris Harris
+; Date: 7 February 2021
+; Description: This is an exercise that works on practicing loops, while loops, and do while loops. 
+;===========================================
+-->
+<html lang="en"> 
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../global.css" type="text/css" rel="stylesheet" />
+        <link href="harris-sequence-game.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to the sequence game!</h1>
+            <div id="form">
+                <!--This is the main card where the sequence type is selected-->
+            <div class="card">
+                <div class="card-title">Sequence Selection Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="sequence">Choose a number sequence:</label>
+                            <select class="drop-down-menu" id="sequence">
+                                <option value="select">--Select--</option>
+                                <option value="fibonacci">Fibonacci Sequence</option>
+                                <option value="even">Even Numbers</option>
+                                <option value="odd">Odd Numbers</option>
+                            </select>
+                        </div>
+                        <!--The button that is clicked after the selection is made-->
+                        <div class="form-field">
+                            <button type="button" class="btn btn-primary full-width" id="btnDisplaySequence">Display Sequence</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!--Results from selection will go in this div-->
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Sequence Results</div>
+                    <div id="results">
+
+                    </div>
+                </div>
+            <a class="return-home" href="../index.html">Return</a>
+           </div>
+        </div>
+
+        <!--JavaScript functions-->
+        <script>
+            document.getElementById("btnDisplaySequence").onclick = function(){
+                var choice = document.getElementById("sequence").value;
+                if (choice == 'fibonacci'){ //if fibonacci sequence is selected this if statement will iterate through sequence until num1 gets to 40
+                    var num1 = 0 ;
+                    var num2 = 1 ;
+                    var next  ;
+                    var fibonacciSequenceText = " " ;
+                   
+                    while (num1 < 40) { 
+                        fibonacciSequenceText += num1 + ", " ;
+                        next = num1 + num2 ;
+                        num1 = num2 ;
+                        num2 = next ;
+                        
+                    }
+                    document.getElementById("results").innerHTML = fibonacciSequenceText.slice(0, -2) ;
+
+                } else if (choice == 'even'){ //if even sequence is selected this if statement will iterate through sequence until 20
+                    var evenSequenceText = " ";
+                    var i = 0;
+                    var x = 0;
+                    do {
+                        evenSequenceText += (x = x + 2) + ", " ;
+                        i++;
+                    }
+                    while (x < 20)
+                    document.getElementById("results").innerHTML = evenSequenceText ;
+
+                } else if (choice == 'odd'){//if odd sequence is selected this if statement will iterate through sequence until 20
+                    var x ;
+                    var i = 0
+                    var oddSequenceText = " " ;
+                    for (x = -1; x < 19; i++) {
+                        oddSequenceText += (x = x + 2) + ", " ; 
+                        document.getElementById("results").innerHTML = oddSequenceText.slice(0, -2) ;
+                    }
+
+                } if (choice == 'select') {//if select is selected then an error box will display
+                    alert("Invalid selection, please try again!")
+                }
+
+            }
+        
+        </script>
+
+
+    </body>
+</html>
