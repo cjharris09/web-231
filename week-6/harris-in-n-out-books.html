@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Assignment 6.2
+; Author: Chris Harris
+; Date: 14 February 2021
+; Description: This is an exercise that works on . 
+; References used youTube video from Dennis Ivy found at https://www.youtube.com/watch?v=XmdOZ5NSqb8
+;===========================================
+-->
+<html lang="en"> 
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../global.css" type="text/css" rel="stylesheet" />
+        <link href="harris-in-n-out-books.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+            <div id="form">
+                <!--This is the main card where books or authors are selected-->
+            <div class="card">
+                <div class="card-title">My Favorites</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="sequence">Choose a Listing:</label>
+                            <select class="drop-down-menu" id="favoriteList">
+                                <option value="select">--Select--</option>
+                                <option value="books">Top 3 Favorite Books</option>
+                                <option value="authors">Top 3 Favorite Authors</option>
+                            </select>
+                        </div>
+                        <!--The button that is clicked after the selection is made-->
+                        <div class="form-field">
+                            <button type="button" class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="return-home" href="../index.html">Return</a>
+            </div>
+
+            <!--This is a hidden div that displays the favorite books table-->
+            <div id="favorite-books">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Top 3 Favorite Books</div>
+                    <div id="results">
+                        <table id="books">
+                            <thead>
+                            <tr>
+                                <th>IBSN</th>
+                                <th>Title</th>
+                                <th>Pages</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksTableData">
+                            
+                        </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            
+           </div>
+        </div>
+        <!--This is a hidden div that displays the favorite authors table-->
+        <div id="favorite-authors">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Top 3 Favorite Authors</div>
+                    <div id="results">
+                        <table id="authors">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Genre</th>
+                            </tr>
+                        </thead>
+                        <tbody id="authorTableData">
+                            
+                        </tbody>
+
+                            
+                        </table>
+
+                    </div>
+                </div>
+            
+           </div>
+        </div>
+
+        
+
+        </div>
+
+        <!--JavaScript functions-->
+        <script>
+
+            /*this is an object containing the favorite book information*/
+            let favoriteBooks = [ 
+                { isbn: "0345535529", title: "A Song of Ice and Fire", pages: 5216}, 
+                { isbn: "0060741872", title: "Alas, Babylon", pages: 352},
+                { isbn: '0140449264', title: "The Count of Monte Cristo", pages:1276}
+            ];
+            /*This calls the function that builds the table*/
+            buildBookTable(favoriteBooks)
+            /*Function that will build the favorite books table*/
+            function buildBookTable(data) {
+                var table = document.getElementById('booksTableData')
+                /*This for loop populates the data from the favorite books into the table above*/
+                for (var i = 0; i < data.length; i++) {
+                    var row =  `<tr>
+                                   <td>${data[i].isbn}</td>
+                                   <td>${data[i].title}</td>
+                                   <td>${data[i].pages}</td>
+                                </tr>`;
+                    table.innerHTML +=row
+                }
+               
+            }
+            /*this is an object containing the favorite author information*/
+            let favoriteAuthors =[ 
+                { name: "George R.R. Martin", genre: "Fantasy"},
+                { name: "J.R.R. Tolkein", genre: "Fantasy"},
+                { name: "Robin Hobb", genre: "Fantasy"}
+            ];
+            /*This calls the function that builds the table*/
+            buildAuthorTable(favoriteAuthors)
+            /*Function that will build the favorite authors table*/
+            function buildAuthorTable(data) {
+                var table = document.getElementById('authorTableData')
+                 /*This for loop populates the data from the favorite authors into the table above*/
+                for (var i = 0; i < data.length; i++) {
+                    var row =  `<tr>
+                                   <td>${data[i].name}</td>
+                                   <td>${data[i].genre}</td>
+                                </tr>`;
+                    table.innerHTML +=row
+                }
+               
+            }
+
+
+
+                let books = document.getElementById("favorite-books");/*gets the favorite-books div from the html*/
+                let authors = document.getElementById("favorite-authors")/*gets the favorite-authors div from the html*/
+                books.style.display = "none";/*sets the div to not display*/
+                authors.style.display = "none";/*sets the div to not display*/
+            document.getElementById("btnDisplayListing").onclick = function(){//onclick function that will use if statement to  
+                var choice = document.getElementById("favoriteList").value;   //evaluate and then display none or block based on the choice made./
+                if (choice == 'books') {
+                    books.style.display = "block";
+                    authors.style.display = "none";
+                }
+                else if (choice == 'authors') {
+                    books.style.display = "none";
+                    authors.style.display = "block";
+                }
+                else if (choice == 'select') {
+                    books.style.display = "none";
+                    authors.style.display = "none";
+                }
+                
+
+            }
+        
+        </script>
+
+
+    </body>
+</html>
