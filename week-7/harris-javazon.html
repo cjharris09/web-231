@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Assignment 6.2
+; Author: Chris Harris
+; Date: 21 February 2021
+; Description: This is an exercise that works on classes and class objects. 
+; 
+;===========================================
+-->
+<html lang="en"> 
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../global.css" type="text/css" rel="stylesheet" />
+        <link href="harris-javazon.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to Javazon App!</h1>
+            <div id="form">
+                <!--This is the main card where books or authors are selected-->
+            <div class="card">
+                <div class="card-title">Javazon Selection Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="sequence">Choose a Listing:</label>
+                            <select class="drop-down-menu" id="listing">
+                                <option value="select">--Select--</option>
+                                <option value="products">Products</option>
+                                <option value="services">Services</option>
+                                <option value="employees">Employees</option>
+                            </select>
+                        </div>
+                        <!--The button that is clicked after the selection is made-->
+                        <div class="form-field">
+                            <button type="button" class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="return-home" href="../index.html">Return</a>
+            </div>
+
+            <!--This is a hidden div that displays the products table-->
+            <div id="products-div">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Javazon Products</div>
+                    <div id="results">
+                        <table id="products-table">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Value</th>
+                                </tr>
+
+                            </thead>
+                            <tbody id="products-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+           </div>
+        </div>
+<!--This is a hidden div that displays the services table-->
+        <div id="services-div">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Javazon Services</div>
+                    <div id="results">
+                        <table id="services-table">
+                            <thead>
+                                <tr>
+                                    <th>Service ID</th>
+                                    <th>Description</th>
+                                    <th>Hourly Rates</th>
+                                    <th>Minimum Billable Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody id="services-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+           </div>
+        </div>
+<!--This is a hidden div that displays the employees table-->
+        <div id="employees-div">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Javazon Employees</div>
+                    <div id="results">
+                        <table id="employees-table">
+                            <thead>
+                                <tr>
+                                    <th>Employee ID</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employees-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+           </div>
+        </div>
+        
+
+        
+
+        </div>
+
+        <!--JavaScript functions-->
+        <script>
+            //product class that establishes the parameters of the class product 
+            class Product {
+                constructor (id, description, price, quantity){
+                    this.id = id;
+                    this.description = description;
+                    this.price = price;
+                    this.quantity = quantity;
+                    this.totalValue = price * quantity;
+                }
+            }
+// establishes product object
+            var product01 = new Product(12, 'Its a thing', 12.52, 3);
+            var product02 = new Product(13, 'Its a thing', 12.52, 4);
+            var product03 = new Product(14, 'Its a thing', 12.52, 7);
+            var product04 = new Product(15, 'Its a thing', 12.52, 2);
+            var product05 = new Product(16, 'Its a thing', 12.52, 1);
+
+            console.log(product01)
+            console.log(product02)
+            console.log(product03)
+            console.log(product04)
+            console.log(product05)
+
+            let productData = [
+                {product01 },
+                {product02 },
+                {product03 },
+                {product04 },
+                {product05 }
+
+            ]
+            buildProductTable(productData)
+//function that builds the section of table that is needed
+            function buildProductTable(data) {
+                var table = document.getElementById('products-table-body')
+
+                    var row =  `<tr>
+                                   <td>${product01.id}</td>
+                                   <td>${product01.description}</td>
+                                   <td>${product01.price}</td>
+                                   <td>${product01.quantity}</td>
+                                   <td>${product01.totalValue}</td>
+                                </tr>
+                                <tr>
+                                   <td>${product02.id}</td>
+                                   <td>${product02.description}</td>
+                                   <td>${product02.price}</td>
+                                   <td>${product02.quantity}</td>
+                                   <td>${product02.totalValue}</td>
+                                </tr>
+                                <tr>
+                                   <td>${product03.id}</td>
+                                   <td>${product03.description}</td>
+                                   <td>${product03.price}</td>
+                                   <td>${product03.quantity}</td>
+                                   <td>${product03.totalValue}</td>
+                                </tr>
+                                <tr>
+                                   <td>${product04.id}</td>
+                                   <td>${product05.description}</td>
+                                   <td>${product05.price}</td>
+                                   <td>${product05.quantity}</td>
+                                   <td>${product05.totalValue}</td>
+                                </tr>`;
+                                
+                    table.innerHTML +=row
+                }
+               
+            
+
+
+//services class that establishes the parameters of the class services 
+            class Services {
+                constructor(id, description, hourlyRate, min){
+                    this.id = id;
+                    this.description = description;
+                    this.hourlyRate = hourlyRate;
+                    this.min = min;
+                }
+            }
+// establishes services object
+            var services01 = new Services(65, 'Fresh Work', 10.00, 10);
+            var services02 = new Services(66, 'You Worked on it First', 20.00, 20);
+            var services03 = new Services(67, 'You Want to Help', 50.00, 100);
+
+            let serviceData = [
+                {services01},
+                {services02},
+                {services03},
+            ]
+
+            buildServiceTable(serviceData)
+//function that builds the section of table that is needed
+            function buildServiceTable(data) {
+                var table = document.getElementById('services-table-body')
+
+                    var row =  `<tr>
+                                   <td>${services01.id}</td>
+                                   <td>${services01.description}</td>
+                                   <td>${services01.hourlyRate}</td>
+                                   <td>${services01.min}</td>
+                                </tr>
+                                <tr>
+                                   <td>${services02.id}</td>
+                                   <td>${services02.description}</td>
+                                   <td>${services02.hourlyRate}</td>
+                                   <td>${services02.min}</td>
+                                </tr>
+                                <tr>
+                                   <td>${services03.id}</td>
+                                   <td>${services03.description}</td>
+                                   <td>${services03.hourlyRate}</td>
+                                   <td>${services03.min}</td>
+                                </tr>
+                                `;
+                                
+                    table.innerHTML +=row
+                }
+
+
+//employee class that establishes the parameters of the class employee 
+            class Employee {
+                constructor(id, firstName, lastName, salary){
+                    this.id = id;
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                    this.salary = salary;
+                }
+            }
+            // establishes employee object
+            var employee01 = new Employee(1001, 'Jake', 'StateFarm', 15.01);
+            var employee02 = new Employee(1002, 'James', 'Jesse', 19.01);
+            var employee03 = new Employee(1003, 'Jesse', 'James', 30.02);
+            var employee04 = new Employee(1004, 'Richard', 'Cheese', 100.03);
+            var employee05 = new Employee(1005, 'Scott', 'Parms', 16.04);
+
+            let employeeData = [
+                {employee01},
+                {employee02},
+                {employee03},
+                {employee04},
+                {employee05},
+            ]
+
+            buildEmployeeTable(employeeData)
+//function that builds the section of table that is needed
+            function buildEmployeeTable(data) {
+                var table = document.getElementById('employees-table-body')
+
+                    var row =  `<tr>
+                                   <td>${employee01.id}</td>
+                                   <td>${employee01.firstName}</td>
+                                   <td>${employee01.lastName}</td>
+                                   <td>${employee01.salary}</td>
+                                </tr>
+                                <tr>
+                                   <td>${employee02.id}</td>
+                                   <td>${employee02.firstName}</td>
+                                   <td>${employee02.lastName}</td>
+                                   <td>${employee02.salary}</td>
+                                </tr>
+                                <tr>
+                                   <td>${employee03.id}</td>
+                                   <td>${employee03.firstName}</td>
+                                   <td>${employee03.lastName}</td>
+                                   <td>${employee03.salary}</td>
+                                </tr>
+                                <tr>
+                                   <td>${employee04.id}</td>
+                                   <td>${employee04.firstName}</td>
+                                   <td>${employee04.lastName}</td>
+                                   <td>${employee04.salary}</td>
+                                </tr>
+                                <tr>
+                                   <td>${employee05.id}</td>
+                                   <td>${employee05.firstName}</td>
+                                   <td>${employee05.lastName}</td>
+                                   <td>${employee05.salary}</td>
+                                </tr>
+                                `;
+                                
+                    table.innerHTML +=row
+                }
+
+
+            
+
+
+
+            let products = document.getElementById("products-div");//gets the products-div from the html
+            let services = document.getElementById("services-div");//gets the services-div from the html
+            let employees = document.getElementById("employees-div");//gets the employees-div from the html
+
+            products.style.display = "none";// sets div to not display
+            services.style.display = "none";// sets div to not display
+            employees.style.display = "none";// sets div to not display
+
+            document.getElementById("btnDisplayListing").onclick = function(){//onclick function that will use if statement to  
+                var choice = document.getElementById("listing").value;   //evaluate and then display none or block based on the choice made./
+                switch (choice) {
+                    case "products":
+                         products.style.display = "block";
+                         services.style.display = "none";
+                         employees.style.display = "none";
+                         break;
+                    case "services":
+                         products.style.display = "none";
+                         services.style.display = "block";
+                         employees.style.display = "none";
+                         break;
+                    case "employees":
+                        products.style.display = "none";
+                         services.style.display = "none";
+                         employees.style.display = "block";
+                         break;
+                    
+                    default:
+                        products.style.display = "none";
+                         services.style.display = "none";
+                         employees.style.display = "none";
+                }
+            }
+
+        </script>
+
+
+    </body>
+</html>
