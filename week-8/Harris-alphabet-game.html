@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Assignment 6.2
+; Author: Chris Harris
+; Date: 28 February 2021
+; Description: This is an exercise that works on arrays. 
+; 
+;===========================================
+-->
+<html lang="en"> 
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>
+        <link href="../global.css" type="text/css" rel="stylesheet" />
+        <link href="Harris-alphabet-game.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+            <div id="form">
+                <!--This is the main card where the number is input-->
+            <div class="card">
+                <div class="card-title">Alphabet Number Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtPosition">Alphabet Letter Position</label>
+                            <input class="input" type="text" id="txtPosition">
+                        </div>
+                        <!--The button that is clicked after the input is made-->
+                        <div class="form-field">
+                            <button type="button" class="btn btn-primary full-width" id="btnFindLetter">Find Letter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="return-home" href="../index.html">Return</a>
+            </div>
+
+           
+        
+         <!--Div that displays the alphabet-->
+        <div id="alphabet-div">
+            <div id="form-results">
+                <div class="card">
+                    <div class="card-title">Letters in the Alphabet</div>
+                    <div id="results">
+                        
+                    </div>
+                </div>
+           </div>
+        </div>
+        <!--Div that displays the position of the input number or the string that says the error text-->
+        <div id="letter-div">
+        <div id="form-results">
+            <div class="card">
+                <div class="card-title">Results</div>
+                <div id="letter-results">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        </div>
+
+        <!--JavaScript functions-->
+        <script>
+            var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];//Here is the alphabet array
+            var alphabetOutput = " ";//Empty string array to build the alphabet
+            var x;
+
+            
+             // for loop that will build the alphabet array
+            for (x in alphabet){
+               alphabetOutput += alphabet[x] + ", "
+            }
+             //sends the built array to the alphabet-div
+            document.getElementById("results").innerHTML = alphabetOutput.slice (0, -2);
+             //onclick function that compares the input to the array 
+            document.getElementById("btnFindLetter").onclick = function(){
+
+                var pos = document.getElementById("txtPosition").value;
+                var posActual = parseInt(pos)-1;// variable that corrects the number to correspond to the correct letter in the alphabet
+                var letter = alphabet[posActual] //compares the input to the alphabet array
+                //if else loop that will print the desired string to the letter-results div
+                if (letter === undefined){
+                    document.getElementById("letter-results").innerHTML = ('There are not '+ pos +' letters in the alphabet.') 
+                }
+                else {
+                    document.getElementById("letter-results").innerHTML = ( ''+ letter + ' is at position ' + pos + ' in the alphabet.' )
+                }
+                
+
+            }
+           
+
+        </script>
+
+
+    </body>
+</html>
